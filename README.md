@@ -12,7 +12,7 @@ You can view this codebase as underlying the development framework that supports
 
 You can use this framework to **develop any type of Apollo-powered Meteor & React app**.
 
-### Install
+### Get Started
 
 Clone this repo locally, then:
 
@@ -23,17 +23,19 @@ meteor
 
 And open `http://localhost:3000/movies` in your browser.
 
+You can then take a look at [the code for the `movies-demo` package](https://github.com/TelescopeJS/Telescope/tree/apollo-clean/packages/movies-demo/lib) to understand how Nova works. 
+
 ### Features
 
 Core Nova features include:
 
-##### GraphQL Schema Generation
+#### GraphQL Schema Generation
 
 Nova will automatically generate GraphQL schemas for your collections based on their [SimpleSchema](https://github.com/aldeed/meteor-simple-schema) JSON schema. 
 
 This prevents you from having to specify your schema twice in two different formats. Although please note that this feature is completely optional, and that you can also specify your schema manually if you prefer. 
 
-##### Easy Data Loading
+#### Easy Data Loading
 
 Nova features a set of data loading helpers to make loading Apollo data easier, `withList` (to load a list of documents) and `withSingle` (to load a single document). 
 
@@ -52,7 +54,7 @@ export default withList(listOptions)(MoviesList);
 
 You can pass a fragment to control what data is loaded for each document.
 
-##### Automated Forms
+#### Automated Forms
 
 Nova will also use your schema to generate client-side forms and handle their submission via the appropriate Apollo mutation. 
 
@@ -71,7 +73,7 @@ The `queryName` option tells NovaForm which query should be automatically update
 
 Note that NovaForm will also take care of loading the document to edit, if it's not already loaded in the client store. 
 
-##### Schema-based Security & Validation
+#### Schema-based Security & Validation
 
 All of Nova's security and validation is based on your collection's schema. For each field of your schema, you can define the following functions:
 
@@ -81,7 +83,7 @@ All of Nova's security and validation is based on your collection's schema. For 
 
 They all take the current user as argument (and optionally the document being affected) and check if the user can perform the given action. 
 
-##### Groups & Permissions
+#### Groups & Permissions
 
 Nova features a simple system to handle user groups and permissions. For example, here's how you would define that all users can create new movies and edit/remove their own, but only admins can edit or remove other user's movies:
 
@@ -102,7 +104,7 @@ Users.groups.admins.can(adminActions);
 
 You can then reference these actions in your mutation checks. 
 
-##### Other Features
+#### Other Features
 
 Out of the box, Nova also includes many other time-saving features, such as:
 
