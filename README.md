@@ -35,6 +35,27 @@ Nova will automatically generate GraphQL schemas for your collections based on t
 
 This prevents you from having to specify your schema twice in two different formats. Although please note that this feature is completely optional, and that you can also specify your schema manually if you prefer. 
 
+#### Automated Forms
+
+Nova will also use your schema to generate client-side forms and handle their submission via the appropriate Apollo mutation. 
+
+![http://g.recordit.co/FcZuDIo8Rw.gif](http://g.recordit.co/FcZuDIo8Rw.gif)
+
+For example, here's how you would display a form to edit a single movie:
+
+```js
+<NovaForm 
+  collection={Movies} 
+  documentId={props.documentId}
+  queryName="moviesListQuery"
+  showRemove={true}
+/>
+```
+
+The `queryName` option tells NovaForm which query should be automatically updated once the operation is done, while the `showRemove` option add a “Delete Movie” button to the form. 
+
+Note that NovaForm will also take care of loading the document to edit, if it's not already loaded in the client store. 
+
 #### Easy Data Loading
 
 Nova features a set of data loading helpers to make loading Apollo data easier, `withList` (to load a list of documents) and `withSingle` (to load a single document). 
@@ -53,25 +74,6 @@ export default withList(listOptions)(MoviesList);
 ```
 
 You can pass a fragment to control what data is loaded for each document.
-
-#### Automated Forms
-
-Nova will also use your schema to generate client-side forms and handle their submission via the appropriate Apollo mutation. 
-
-For example, here's how you would display a form to edit a single movie:
-
-```js
-<NovaForm 
-  collection={Movies} 
-  documentId={props.documentId}
-  queryName="moviesListQuery"
-  showRemove={true}
-/>
-```
-
-The `queryName` option tells NovaForm which query should be automatically updated once the operation is done, while the `showRemove` option add a “Delete Movie” button to the form. 
-
-Note that NovaForm will also take care of loading the document to edit, if it's not already loaded in the client store. 
 
 #### Schema-based Security & Validation
 
