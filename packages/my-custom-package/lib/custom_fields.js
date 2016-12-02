@@ -28,7 +28,8 @@ Posts.addField(
             {value: "yellow", label: "Yellow"},
             {value: "blue", label: "Blue"},
             {value: "red", label: "Red"},
-            {value: "green", label: "Green"}
+            {value: "green", label: "Green"},
+            {value: "orange", label: "Orange"}
           ];
         }
       },
